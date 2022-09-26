@@ -87,16 +87,16 @@ spec:
           command:
           - bash
           - -c
-          - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates
-            --fresh
+          - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
     name: kubernetes-demo
     volumeMounts:
     - mountPath: /certs
       name: mitmproxysecret
-      readOnly: false
+      readOnly: true
   dnsPolicy: Default
   volumes:
-  - secret:
-      secretname: mitmproxysecret
+  - name: mitmproxysecret
+    secret:
+      secretName: mitmproxysecret
 EOF
 ```
