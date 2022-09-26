@@ -23,11 +23,6 @@ spec:
     volumeMounts:
     - name: mitmproxymount
       mountPath: /root/.mitmproxy
-    env:
-    - name: DEMO_GREETING
-      value: "Hello from the environment"
-    - name: DEMO_FAREWELL
-      value: "Such a sweet sorrow"
   volumes:
   - name: mitmproxymount
     hostPath: 
@@ -91,9 +86,9 @@ spec:
     name: kubernetes-demo
     env:
     - name: http_proxy
-      value: "http://mitmproxy.mitmproxy-svc:8080/"
+      value: "http://mitmproxy-svc.mitmproxy:8080/"
     - name: https_proxy
-      value: "http://mitmproxy.mitmproxy-svc:8080/"
+      value: "http://mitmproxy-svc.mitmproxy:8080/"
     volumeMounts:
     - mountPath: /certs
       name: mitmproxysecret
