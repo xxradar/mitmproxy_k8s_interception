@@ -44,3 +44,7 @@ docker run -it --rm -e "http_proxy=http://$MITMPROXY_IP:8080/" \
                     -e "https_proxy=http://$MITMPROXY_IP:8080/" \
                     demo_container
 ```
+```
+curl https://www.radarhack.com
+...
+```
