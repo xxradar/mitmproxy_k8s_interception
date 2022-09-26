@@ -53,3 +53,13 @@ docker run -it --rm -e "http_proxy=http://$MITMPROXY_IP:8080/" \
 curl https://www.radarhack.com
 ...
 ```
+## Additional security demo
+```
+apt-get update 
+```
+```
+apt-get install nikto
+```
+```
+nikto -host www.radarhack.com  -p 443 -useproxy $https_proxy
+```
