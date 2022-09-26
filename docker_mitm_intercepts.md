@@ -19,6 +19,12 @@ curl -kv https://www.radarhack.com
 ```
 docker run -it --rm -e "http_proxy=http://$MITMPROXY_IP:8080/" \
                     -e "https_proxy=http://$MITMPROXY_IP:8080/" \
+                    -v ~/.mitmproxy/mitmproxy-ca-cert.pem:/usr/local/share/ca-certificates/mitmproxy-ca-cert.crt \
                     xxradar/hackon
 ```
-
+```
+update-ca-certificates
+```
+```
+curl https://www.radarhack.com
+```
