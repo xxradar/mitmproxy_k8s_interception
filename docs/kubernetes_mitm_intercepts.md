@@ -55,7 +55,8 @@ EOF
       mountPath: <PATH IN CONTAINER>
   
   
-  kubectl apply -f - <<EOF
+```  
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -81,3 +82,4 @@ spec:
    - name: host-mount
      hostPath: /mitmproxy_certs
 EOF
+```
