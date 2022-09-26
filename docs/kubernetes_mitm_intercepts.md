@@ -82,7 +82,7 @@ spec:
           command:
           - bash
           - -c
-          - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
+          - cp /certs/mitmproxy-ca.pem /usr/local/share/ca-certificates/mitmproxy-ca.crt ; update-ca-certificates --fresh
     name: kubernetes-demo
     env:
     - name: http_proxy
