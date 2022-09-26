@@ -2,6 +2,8 @@
 In order to intercept the traffic form the container, we need
 - insert the env variables
 - make the container trust the mitmproxy certificate
+
+### Inserting the the env variables
 ```
 export MITMPROXY_IP=192.168.0.131
 
@@ -18,7 +20,7 @@ curl -kv https://www.radarhack.com
 ```
 
 
-## Solving the untrusted certificate manually
+### Solving the untrusted certificate manually
 ```
 docker run -it --rm -e "http_proxy=http://$MITMPROXY_IP:8080/" \
                     -e "https_proxy=http://$MITMPROXY_IP:8080/" \
