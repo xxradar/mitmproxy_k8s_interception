@@ -93,7 +93,6 @@ spec:
     - mountPath: /certs
       name: mitmproxysecret
       readOnly: true
-  dnsPolicy: Default
   volumes:
   - name: mitmproxysecret
     secret:
