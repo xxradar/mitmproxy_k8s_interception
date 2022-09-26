@@ -1,17 +1,21 @@
 # mitmproxy_k8s_interception
 
 ### Installing via docker
+### CLI
 ```
 docker pull mitmproxy/mitmproxy
 docker run --rm -it -v ~/.mitmproxy:/home/mitmproxy/.mitmproxy -p 8080:8080 mitmproxy/mitmproxy
 ```
-
+### WebUI
+```
+docker run --rm -it -v ~/.mitmproxy:/home/mitmproxy/.mitmproxy -p 8080:8080 -p 127.0.0.1:8081:8081 mitmproxy/mitmproxy mitmweb --web-host 0.0.0.0
+```
 ### Verifying if everything is wworking fine
 ```
 http_proxy=http://localhost:8080/ curl http://www.radarhack.com/
 https_proxy=http://localhost:8080/  curl -kv https://www.radarhack.com/
 ```
-Note: Check the certificate returned by mitmproxy. 
+Note: Check the certificate returned by mitmprox. <br>
 `*  issuer: CN=mitmproxy; O=mitmproxy `
 ```
 ...
