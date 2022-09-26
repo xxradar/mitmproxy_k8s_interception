@@ -64,10 +64,39 @@ ls -la /Users/xxradar/certs
 
 ## Create a secret 
 ```
-kubectl create secret generic mitmproxysecret -n mitmproxy  --from-file=/Users/xxradar/certs/mitmproxy-ca.pem
+kubectl create secret generic mitmproxysecret  --from-file=/Users/xxradar/certs/mitmproxy-ca.pem
 ```
 
 ## Mounting the secret in a deployment
 ```
-
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubernetes-demo
+spec:
+  containers:
+  - args:
+    - 5000s
+    command:
+    - sleep
+    image: xxradar/hackon
+    lifecycle:
+      postStart:
+        exec:
+          command:
+          - bash
+          - -c
+          - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates
+            --fresh
+    name: kubernetes-demo
+    volumeMounts:
+    - mountPath: /certs
+      name: mitmproxysecret
+      readOnly: false
+  dnsPolicy: Default
+  volumes:
+  - secret:
+      secretname: mitmproxysecret
+EOF
 ```
