@@ -1,4 +1,7 @@
 ## MITMPROXY intercept from docker container
+In order to intercept the traffic form the container, we need
+- insert the env variables
+- make the container trust the mitmproxy certificate
 ```
 export MITMPROXY_IP=192.168.0.131
 
