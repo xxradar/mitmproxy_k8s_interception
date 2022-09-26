@@ -1,6 +1,7 @@
 
-docker run --rm -it -v ~/.mitmproxy:/home/mitmproxy/.mitmproxy -p 8080:8080 -p 127.0.0.1:8081:8081 mitmproxy/mitmproxy mitmweb --web-host 0.0.0.0
-
+```
+mkdir /Users/xxradar/certs
+```
 ```
 kubectl create ns mitmproxy
 ```
@@ -19,11 +20,18 @@ spec:
     image: mitmproxy/mitmproxy
     command: ["mitmweb"]
     args: ["--web-host","0.0.0.0"]
+    volumeMounts:
+    - name: mitmproxymount
+      mountPath: /root/.mitmproxy
     env:
     - name: DEMO_GREETING
       value: "Hello from the environment"
     - name: DEMO_FAREWELL
-      value: "Such a sweet sorrow"                    
+      value: "Such a sweet sorrow"
+  volumes:
+  - name: mitmproxymount
+    hostPath: 
+      path: /Users/xxradar/certs
 EOF
 ```
 ```
@@ -48,38 +56,7 @@ spec:
   type: NodePort
 EOF
 ```
-
-
-  volumeMounts:
-    - name: crypto-config
-      mountPath: <PATH IN CONTAINER>
-  
-  
-```  
-kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mitmproxy
-  namespace: mitmproxy
-  labels:
-    proxy: mitmproxy
-spec:
-  containers:
-  - name: mitmweb
-    image: mitmproxy/mitmproxy
-    command: ["mitmweb"]
-    args: ["--web-host","0.0.0.0"]
-    volumeMounts:
-    - name: mitmproxy_mount
-      mountPath: /home/mitmproxy/.mitmproxy
-    env:
-    - name: DEMO_GREETING
-      value: "Hello from the environment"
-    - name: DEMO_FAREWELL
-      value: "Such a sweet sorrow"
-   volumes:
-   - name: host-mount
-     hostPath: /mitmproxy_certs
-EOF
+Check if the certs are available
+```
+ls -la /Users/xxradar/certs
 ```
