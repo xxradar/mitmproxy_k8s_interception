@@ -1,4 +1,5 @@
 
+**Need cleanup for the storage of the mitmproxy cert
 ```
 mkdir /Users/xxradar/certs
 ```
@@ -51,15 +52,15 @@ spec:
   type: NodePort
 EOF
 ```
-Check if the certs are available
-```
-ls -la /Users/xxradar/certs
-```
 
+## Copy the mitmproxy-ca.pem from the mitmproxy pod
+```
+kubectl cp mitmproxy/mitmproxy:/root/.mitmproxy/mitmproxy-ca.pem  ./mitmproxy-ca.pem
+```
 
 ## Create a secret 
 ```
-kubectl create secret generic mitmproxysecret  --from-file=/Users/xxradar/certs/mitmproxy-ca.pem
+kubectl create secret generic mitmproxysecret  --from-file=mitmproxy-ca.pem
 ```
 
 ## Mounting the secret in a deployment
