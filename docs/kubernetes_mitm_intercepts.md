@@ -89,6 +89,11 @@ spec:
           - -c
           - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
     name: kubernetes-demo
+    env:
+    - name: http_proxy
+      value: "http://mitmproxy.mitmproxy-svc:8080/
+    - name: https_proxy
+      value: "http://mitmproxy.mitmproxy-svc:8080/
     volumeMounts:
     - mountPath: /certs
       name: mitmproxysecret
