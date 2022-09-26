@@ -60,3 +60,14 @@ Check if the certs are available
 ```
 ls -la /Users/xxradar/certs
 ```
+
+
+## Create a secret 
+```
+kubectl create secret generic mitmproxysecret -n mitmproxy  --from-file=/Users/xxradar/certs/mitmproxy-ca.pem
+```
+
+## Mounting the secret in a deployment
+```
+
+```
