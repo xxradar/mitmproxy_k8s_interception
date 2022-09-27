@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backdoor-demo
+spec:
+  containers:
+    - name: certinject
+      volumeMounts:
+        - name: ca-pemstore
+          mountPath: /certs
+          readOnly: false
+      lifecycle:
+        postStart:
+          exec:
+            command:
+              - bash
+              - -c
+              - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
+  volumes:
+  - name: ca-pemstore
+    configMap:
+      name: ca-pemstore
