@@ -73,11 +73,12 @@ metadata:
   name: mitm-demo-pod
 spec:
   containers:
-  - args:
-    - 5000s
+  - name: mitm-demo
+    image: xxradar/hackon
     command:
     - sleep
-    image: xxradar/hackon
+    args:
+    - 5000s
     lifecycle:
       postStart:
         exec:
@@ -85,7 +86,6 @@ spec:
           - bash
           - -c
           - cp /certs/mitmproxy-ca.pem /usr/local/share/ca-certificates/mitmproxy-ca.crt ; update-ca-certificates --fresh
-    name: mitm-demo
     env:
     - name: http_proxy
       value: "http://mitmproxy-svc.mitmproxy:8080/"
