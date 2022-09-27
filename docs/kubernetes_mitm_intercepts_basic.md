@@ -60,7 +60,7 @@ kubectl port-forward  -n mitmproxy svc/mitmproxy-svc  8081:8081
 ```
 
 ## Connect your browser `http://127.0.0.1:8081`
-[mitmproxy](../images/mitmproxy.png)
+![mitmproxy](../images/mitmproxy.png)
 
 ## Mounting the secret in a deployment
 ```
