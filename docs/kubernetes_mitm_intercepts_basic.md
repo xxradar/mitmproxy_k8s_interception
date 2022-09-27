@@ -44,7 +44,7 @@ spec:
 EOF
 ```
 
-## Copy the `mitmproxy-ca.pem` from the mitmproxy pod
+## Copy the `mitmproxy-ca.pem` from the `mitmproxy` pod
 ```
 kubectl cp mitmproxy/mitmproxy:/root/.mitmproxy/mitmproxy-ca.pem  ./mitmproxy-ca.pem
 ```
