@@ -59,7 +59,8 @@ kubectl create secret generic mitmproxysecret  --from-file=mitmproxy-ca.pem
 kubectl port-forward  -n mitmproxy svc/mitmproxy-svc  8081:8081
 ```
 
-## Connect your browser http://127.0.0.1:8081
+## Connect your browser `http://127.0.0.1:8081`
+[mitmproxy](../images/mitmproxy.png)
 
 ## Mounting the secret in a deployment
 ```
