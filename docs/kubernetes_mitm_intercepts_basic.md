@@ -1,6 +1,8 @@
 
 
-## Deploy mitmproxy in kubernetes
+## mitmproxy deployment in kubernetes solving the untrusted certificate problem
+
+### Setup mitmproxy on Kubernetes
 
 ```
 kubectl create ns mitmproxy
@@ -44,25 +46,25 @@ spec:
 EOF
 ```
 
-## Copy the `mitmproxy-ca.pem` from the `mitmproxy` pod
+### Copy the `mitmproxy-ca.pem` from the `mitmproxy` pod
 ```
 kubectl cp mitmproxy/mitmproxy:/root/.mitmproxy/mitmproxy-ca.pem  ./mitmproxy-ca.pem
 ```
 
-## Create a secret 
+### Create a secret 
 ```
 kubectl create secret generic mitmproxysecret  --from-file=mitmproxy-ca.pem
 ```
 
-## Create a port-forward
+### Create a port-forward
 ```
 kubectl port-forward  -n mitmproxy svc/mitmproxy-svc  8081:8081
 ```
 
-## Connect your browser `http://127.0.0.1:8081`
+### Connect your browser `http://127.0.0.1:8081`
 ![mitmproxy](../images/mitmproxy.png)
 
-## Mounting the secret in a deployment
+## Creating a demo pod
 ```
 kubectl apply -f - <<EOF
 apiVersion: v1
