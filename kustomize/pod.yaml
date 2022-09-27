@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backdoor-demo
+spec:
+  containers:
+    - image: xxradar/hackon
+      name: certinject
+      command: ["sleep"]
+      args: ["240s"]
+      resources: {}
+      ports:
+        - containerPort: 80
+  dnsPolicy: Default
