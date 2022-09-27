@@ -1,7 +1,7 @@
 # mitmproxy k8s and container interception
 ### Installation
-[Install](./doc/install.md)
+[Install](./docs/install.md)
 ### Container interception
-[Container interception](docker_mitm_intercepts.md)
+[Container interception](./docs/docker_mitm_intercepts.md)
 ### K8S pod interception
-[Pod interception](kubernetes_mitm_intercepts_basic.md)
+[Pod interception](./docs/kubernetes_mitm_intercepts_basic.md)
