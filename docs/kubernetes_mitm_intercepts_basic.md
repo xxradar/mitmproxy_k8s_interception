@@ -70,7 +70,7 @@ kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubernetes-demo
+  name: mitm-demo-pod
 spec:
   containers:
   - args:
@@ -85,7 +85,7 @@ spec:
           - bash
           - -c
           - cp /certs/mitmproxy-ca.pem /usr/local/share/ca-certificates/mitmproxy-ca.crt ; update-ca-certificates --fresh
-    name: kubernetes-demo
+    name: mitm-demo
     env:
     - name: http_proxy
       value: "http://mitmproxy-svc.mitmproxy:8080/"
