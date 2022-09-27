@@ -1,5 +1,4 @@
-# mitmproxy_k8s_interception
-
+# mitmproxy_install
 ### Installing via docker
 ### CLI
 ```
