@@ -1,7 +1,12 @@
 
 # WIP
 ## Deploy mitmproxy in kubernetes
-**Need cleanup for the storage of the mitmproxy cert
+** make persistent storage to save / backup mitmproxy certificate 
+** change to certificate only and cert + key ... it works but less secure and unnessary
+** include kustomise example
+** include how to update a running deployment 
+
+
 ```
 mkdir /Users/xxradar/certs
 ```
