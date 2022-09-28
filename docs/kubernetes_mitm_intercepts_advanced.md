@@ -1,10 +1,10 @@
 
 # WIP
 ## Deploy mitmproxy in kubernetes
-** make persistent storage to save / backup mitmproxy certificate 
-** change to certificate only and cert + key ... it works but less secure and unnessary
-** include kustomise example
-** include how to update a running deployment 
+** make persistent storage to save / backup mitmproxy certificate <br>
+** change to certificate only and cert + key ... it works but less secure and unnessary <br>
+** include kustomise example <br>
+** include how to update a running deployment  <br>
 
 
 ```
