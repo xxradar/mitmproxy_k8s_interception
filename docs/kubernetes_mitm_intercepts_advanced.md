@@ -4,6 +4,7 @@
 ** make persistent storage to save / backup mitmproxy certificate <br>
 ** change to certificate only and cert + key ... it works but less secure and unnessary <br>
 ** include kustomise example <br>
+** maybe label every intercepted pod to easily identify ... <br>
 ** include how to update a running deployment  <br>
 
 
