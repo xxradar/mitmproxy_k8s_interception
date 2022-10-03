@@ -21,7 +21,7 @@ spec:
   - name: mitmweb
     image: mitmproxy/mitmproxy
     command: ["mitmweb"]
-    args: ["--web-host","0.0.0.0"]
+    args: ["--web-host","0.0.0.0","--ssl_insecure","true"]
 EOF
 ```
 ```
