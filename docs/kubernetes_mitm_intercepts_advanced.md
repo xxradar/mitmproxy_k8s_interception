@@ -9,6 +9,7 @@
 ** include example to access k8s api <br>
 ** look for app that interacts w/ kubeapi and intercept with env injection <br>
 ** kubectl env ??? <br>
+** would a security tool be intercepted? like trivy when pulling git db ??? <br>
 
 ```
 mkdir /Users/xxradar/certs
