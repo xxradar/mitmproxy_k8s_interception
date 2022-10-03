@@ -6,7 +6,9 @@
 ** include kustomise example <br>
 ** maybe label every intercepted pod to easily identify ... <br>
 ** include how to update a running deployment  <br>
-
+** include example to access k8s api <br>
+** look for app that interacts w/ kubeapi and intercept with env injection <br>
+** kubectl env ??? <br>
 
 ```
 mkdir /Users/xxradar/certs
