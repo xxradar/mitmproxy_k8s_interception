@@ -30,7 +30,7 @@ spec:
   - name: mitmweb
     image: mitmproxy/mitmproxy
     command: ["mitmweb"]
-    args: ["--web-host","0.0.0.0"]
+    args: ["--web-host","0.0.0.0","--ssl-insecure"]
     volumeMounts:
     - name: mitmproxymount
       mountPath: /root/.mitmproxy
