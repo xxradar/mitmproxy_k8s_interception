@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: backdoor-demo
+  name: mitm-demo-pod-kustomize
 spec:
   containers:
     - image: xxradar/hackon
