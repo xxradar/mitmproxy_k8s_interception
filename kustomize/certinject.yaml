@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: backdoor-demo
+  name: mitm-demo-pod-kustomize
 spec:
   containers:
-    - name: certinject
+    - name: mitm-demo-pod-kustomize
       lifecycle:
         postStart:
           exec:
