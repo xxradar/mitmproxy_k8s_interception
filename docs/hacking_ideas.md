@@ -18,7 +18,8 @@ kubectl cp mitmproxy-ca.pem $POD:/tmp/mitmproxy-ca.crt
 kubectl exec $POD -- mkdir /usr/local/share/ca-certificates/
 kubectl exec $POD -- cp /tmp/mitmproxy-ca.crt /usr/local/share/ca-certificates/
 ```
-## When the vars are already set .... you can temporaly disable (it's only in the context of the shell
+## When the vars are already set 
+##      .... you can temporaly disable (it's only in the context of the shell)
 ```
 kubectl exec  $POD -- bash -c "unset http_proxy; unset https_proxy; apt-get update; apt-get install -y ca-certificates curl "
 ```
