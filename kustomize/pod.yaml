@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - image: xxradar/hackon
-      name: certinject
+      name: mitm-demo-pod-kustomize
       command: ["sleep"]
       args: ["240s"]
       resources: {}
