@@ -1,5 +1,5 @@
 ## Updating all pods in namespace 
-Note: You cannot update a pod, but you can update a deploypemtn, rc, ...<br>
+Note: You cannot update a pod, but you can update a deploypent, rc, ...<br>
 https://www.mankier.com/1/kubectl-set-env
 
 ```
