@@ -11,25 +11,26 @@ kubectl set env deploy -n hacking --all "http_proxy=http://mitmproxy-svc.mitmpro
 
 
 
-## Sonetimes you miss the binaries
+## Sometimes you miss the binaries
 
 
 ```
-kubectl cp mitmproxy-ca.pem   radarhack-deployment-6899c8bc7c-h2lx4:/tmp/mitmproxy-ca.crt
-kubectl exec radarhack-deployment-6899c8bc7c-h2lx4 -- mkdir /usr/local/share/ca-certificates/
-kubectl exec radarhack-deployment-6899c8bc7c-h2lx4 -- cp /tmp/mitmproxy-ca.crt /usr/local/share/ca-certificates/
-kubectl exec radarhack-deployment-6899c8bc7c-h2lx4 -- sh -c "/usr/sbin/update-ca-certificates --fresh"
+POD=radarhack-deployment-6899c8bc7c-h2lx4
+kubectl cp mitmproxy-ca.pem $POD:/tmp/mitmproxy-ca.crt
+kubectl exec $POD -- mkdir /usr/local/share/ca-certificates/
+kubectl exec $POD -- cp /tmp/mitmproxy-ca.crt /usr/local/share/ca-certificates/
+kubectl exec $POD -- sh -c "/usr/sbin/update-ca-certificates --fresh"
 ```
 ## When the vars are already set .... you can temporaly disable (it's only in the context of the shell
 ```
-kubectl exec  radarhack-deployment-6899c8bc7c-h2lx4 -- bash -c "unset http_proxy; unset https_proxy; apt-get update; apt-get install -y ca-certificates curl "
+kubectl exec  $POD-- bash -c "unset http_proxy; unset https_proxy; apt-get update; apt-get install -y ca-certificates curl "
 ```
 
 
 ```
-kubectl exec radarhack-deployment-6899c8bc7c-h2lx4 -- sh -c "/usr/sbin/update-ca-certificates --fresh"
+kubectl exec $POD -- sh -c "/usr/sbin/update-ca-certificates --fresh"
 ```
 
 ```
-kubectl exec radarhack-deployment-6899c8bc7c-h2lx4 -- sh -c "curl https://www.radarhack.com"
+kubectl exec $POD-- sh -c "curl https://www.radarhack.com"
 ```
