@@ -5,10 +5,10 @@ metadata:
 spec:
   containers:
     - name: certinject
-      volumeMounts:
-        - name: ca-pemstore
-          mountPath: /certs
-          readOnly: false
+    volumeMounts:
+    - mountPath: /certs
+      name: mitmproxysecret
+      readOnly: true
       lifecycle:
         postStart:
           exec:
@@ -17,6 +17,6 @@ spec:
               - -c
               - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
   volumes:
-  - name: ca-pemstore
-    configMap:
-      name: ca-pemstore
+  - name: mitmproxysecret
+    secret:
+      secretName: mitmproxysecret
