@@ -18,7 +18,8 @@ See [here](../kustomize)
 ```
 kubectl kustomize ./
 ```
-
+## hacking yourself inside a pod
+See [here](hacking.md)
 
 ## scap paper :-)
 ```
