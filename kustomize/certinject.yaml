@@ -16,10 +16,6 @@ spec:
               - bash
               - -c
               - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
-    volumeMounts:
-    - mountPath: /certs
-      name: mitmproxysecret
-      readOnly: true
   volumes:
   - name: mitmproxysecret
     secret:
