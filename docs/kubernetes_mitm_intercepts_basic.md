@@ -65,6 +65,7 @@ kubectl port-forward  -n mitmproxy svc/mitmproxy-svc  8081:8081
 ![mitmproxy](../images/mitmproxy.png)
 
 ## Creating a demo pod
+Note: `update-ca-certificates` requires that the certificate has `.crt` as an extension
 ```
 kubectl apply -f - <<EOF
 apiVersion: v1
