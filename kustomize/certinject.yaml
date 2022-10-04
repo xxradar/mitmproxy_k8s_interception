@@ -1,10 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mitm-demo-pod-kustomize
+  name: backdoor-demo
 spec:
   containers:
-    - name: mitm-demo-pod-kustomize
+    - name: certinject
+      volumeMounts:
+        - name: ca-pemstore
+          mountPath: /certs
+          readOnly: false
       lifecycle:
         postStart:
           exec:
@@ -12,16 +16,7 @@ spec:
               - bash
               - -c
               - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
-    env:
-    - name: http_proxy
-      value: "http://mitmproxy-svc.mitmproxy:8080/"
-    - name: https_proxy
-      value: "http://mitmproxy-svc.mitmproxy:8080/"
-    volumeMounts:
-    - mountPath: /certs
-      name: mitmproxysecret
-      readOnly: true
   volumes:
-  - name: mitmproxysecret
-    secret:
-      secretName: mitmproxysecret
+  - name: ca-pemstore
+    configMap:
+      name: ca-pemstore
