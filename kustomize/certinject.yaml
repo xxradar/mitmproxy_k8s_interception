@@ -4,7 +4,7 @@ metadata:
   name: demo-pod-kustomize
 spec:
   containers:
-    - name: demo-pod-kustomize
+    - name: certinject
       volumeMounts:
         - name: mitmproxysecret
           mountPath: /certs
