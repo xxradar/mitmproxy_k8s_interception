@@ -11,6 +11,16 @@
 ** kubectl set env ??? **working and tested**<br>
 ** would a security tool be intercepted? like trivy when pulling git db ??? **working and tested**<br>
 
+
+
+## Creating injection via `kustomize`
+See [here](../kustomize)
+```
+kubectl kustomize ./
+```
+
+
+## scap paper :-)
 ```
 mkdir /Users/xxradar/certs
 ```
