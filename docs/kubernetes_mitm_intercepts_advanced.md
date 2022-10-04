@@ -4,7 +4,7 @@
 ** make persistent storage to save / backup mitmproxy certificate <br>
 ** change to certificate only and cert + key ... it works but less secure and unnessary <br>
 ** include kustomise example **working and tested**<br>
-** maybe label every intercepted pod to easily identify ... <br>
+** maybe label every intercepted pod to easily identify ...**inserting in kustomize ...** <br>
 ** include how to update a running deployment **working and tested** <br>
 ** include example to access k8s api **working and tested** <br>
 ** look for app that interacts w/ kubeapi and intercept with env injection <br>
