@@ -6,7 +6,7 @@ spec:
   containers:
     - name: certinject
       volumeMounts:
-        - name: ca-pemstore
+        - name: mitmproxysecret
           mountPath: /certs
           readOnly: false
       lifecycle:
@@ -16,7 +16,16 @@ spec:
               - bash
               - -c
               - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
+    env:
+    - name: http_proxy
+      value: "http://mitmproxy-svc.mitmproxy:8080/"
+    - name: https_proxy
+      value: "http://mitmproxy-svc.mitmproxy:8080/"
+    volumeMounts:
+    - mountPath: /certs
+      name: mitmproxysecret
+      readOnly: true
   volumes:
-  - name: ca-pemstore
-    configMap:
-      name: ca-pemstore
+  - name: mitmproxysecret
+    secret:
+      secretName: mitmproxysecret
