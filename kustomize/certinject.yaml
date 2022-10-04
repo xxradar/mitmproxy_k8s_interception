@@ -9,11 +9,6 @@ spec:
         - name: mitmproxysecret
           mountPath: /certs
           readOnly: false
-    env:
-    - name: http_proxy
-      value: "http://mitmproxy-svc.mitmproxy:8080/"
-    - name: https_proxy
-      value: "http://mitmproxy-svc.mitmproxy:8080/"
       lifecycle:
         postStart:
           exec:
@@ -21,6 +16,11 @@ spec:
               - bash
               - -c
               - cp /certs/* /usr/local/share/ca-certificates/ ; update-ca-certificates --fresh
+      env:
+      - name: http_proxy
+        value: "http://mitmproxy-svc.mitmproxy:8080/"
+      - name: https_proxy
+        value: "http://mitmproxy-svc.mitmproxy:8080/"
   volumes:
   - name: mitmproxysecret
     secret:
