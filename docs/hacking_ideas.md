@@ -8,7 +8,7 @@ kubectl set env deploy -n hacking --all "https_proxy=http://mitmproxy-svc.mitmpr
 ```
 kubectl set env deploy -n hacking --all "http_proxy=http://mitmproxy-svc.mitmproxy:8080/" "https_proxy=http://mitmproxy-svc.mitmproxy:8080/"
 ```
-
+Note: pods will be restarted at this point, but will have the env variables. <br>
 
 
 ## Sometimes you miss the binaries (and you can't reboot the pod :))
