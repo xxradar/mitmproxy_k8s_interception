@@ -3,13 +3,13 @@
 ## Deploy mitmproxy in kubernetes
 ** make persistent storage to save / backup mitmproxy certificate <br>
 ** change to certificate only and cert + key ... it works but less secure and unnessary <br>
-** include kustomise example <br>
+** include kustomise example **working and tested**< <br>
 ** maybe label every intercepted pod to easily identify ... <br>
-** include how to update a running deployment  <br>
-** include example to access k8s api <br>
+** include how to update a running deployment **working and tested**< <br>
+** include example to access k8s api **working and tested**< <br>
 ** look for app that interacts w/ kubeapi and intercept with env injection <br>
-** kubectl env ??? <br>
-** would a security tool be intercepted? like trivy when pulling git db ??? <br>
+** kubectl set env ??? **working and tested**<br>
+** would a security tool be intercepted? like trivy when pulling git db ??? **working and tested**<<br>
 
 ```
 mkdir /Users/xxradar/certs
