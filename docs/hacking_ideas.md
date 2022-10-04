@@ -23,7 +23,7 @@ kubectl exec $POD -- sh -c "/usr/sbin/update-ca-certificates --fresh"
 ```
 ## When the vars are already set .... you can temporaly disable (it's only in the context of the shell
 ```
-kubectl exec  $POD-- bash -c "unset http_proxy; unset https_proxy; apt-get update; apt-get install -y ca-certificates curl "
+kubectl exec  $POD -- bash -c "unset http_proxy; unset https_proxy; apt-get update; apt-get install -y ca-certificates curl "
 ```
 
 
