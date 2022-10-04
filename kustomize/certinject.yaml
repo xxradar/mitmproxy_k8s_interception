@@ -5,10 +5,6 @@ metadata:
 spec:
   containers:
     - name: certinject
-      volumeMounts:
-        - name: ca-pemstore
-          mountPath: /certs
-          readOnly: false
       lifecycle:
         postStart:
           exec:
