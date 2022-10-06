@@ -21,6 +21,10 @@ kubectl kustomize ./
 ## Hacking yourself injection in a running pod
 See [here](hacking_ideas.md)
 
+
+
+
+## ignore the rest ....
 ## scrap paper :-)
 ```
 mkdir /Users/xxradar/certs
